@@ -7,9 +7,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthComponent } from './modules/auth/auth.component';
 import { FourOhFourComponent } from './modules/four-oh-four/four-oh-four.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AuthComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'auth' },
+  { path: 'auth', component: AuthComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
 ]
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AuthComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
