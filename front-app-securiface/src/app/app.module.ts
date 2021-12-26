@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthComponent } from './modules/auth/auth.component';
+import { FourOhFourComponent } from './modules/four-oh-four/four-oh-four.component';
 
-const appRoutes: Routes = [{ path: '', component: AuthComponent }]
+const appRoutes: Routes = [
+  { path: '', component: AuthComponent },
+  { path: 'not-found', component: FourOhFourComponent },
+  { path: '**', redirectTo: 'not-found' }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
