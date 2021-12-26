@@ -1,1 +1,65 @@
-<p>auth works!</p>
+<div class="login">
+  <h2 class="login-header mt-4">Je me connecte</h2>
+  <form
+  [formGroup]="loginForm"
+  class="login-container form-group"
+  (ngSubmit)="onLogIn()"
+  >
+  <div class="form-group">
+    <p
+      [ngClass]="{'has-error': isSubmitted && formControls.email.errors}"
+    >
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Email"
+        formControlName="email"
+      >
+    </p>
+    <div
+      *ngIf="isSubmitted && formControls.email.errors"
+      class="help-block"
+    >
+    <div
+      *ngIf="formControls.email.errors"
+      class="text-danger mb-3"
+    >Email de la forme exemple@email.fr
+
+    </div>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <p
+    [ngClass]="{'has-error': isSubmitted && formControls.password.errors}"
+  >
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Mot de passe"
+      formControlName="password"
+    >
+  </p>
+
+  <div
+    *ngIf="isSubmitted && formControls.password.errors"
+    class="help-block"
+  >
+    <div
+      *ngIf="formControls.password.errors"
+      class="text-danger mb-3"
+    >
+      Mot de passe de 6 caractères minimum.
+    </div>
+
+  </div>
+  </div>
+
+  <p>
+    <button
+      class="button-submit btn btn-primary btn-block"
+      type="submit"
+    >Valider</button>
+  </p>
+  </form>
+</div>
