@@ -10,6 +10,8 @@ import { AuthComponent } from './modules/auth/auth.component';
 import { FourOhFourComponent } from './modules/four-oh-four/four-oh-four.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     AppComponent,
     AuthComponent,
     FourOhFourComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
