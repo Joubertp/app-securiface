@@ -1,4 +1,4 @@
-/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 *, before, after {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

@@ -19,7 +19,8 @@ const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
   { path: 'auth', component: AuthComponent },
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
+    canActivate: [AuthGuard],
     component: DashboardComponent,
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'camera'},

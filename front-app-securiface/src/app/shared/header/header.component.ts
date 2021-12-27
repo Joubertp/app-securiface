@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input() title = 'Securiface';
-  @Input() subtitle = 'Vidéo surveillance'
 
   constructor(private router: Router) { }
 

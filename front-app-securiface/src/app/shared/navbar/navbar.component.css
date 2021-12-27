@@ -1,13 +1,19 @@
-.nav-item-custom a {
-  padding: 15px;
+.nav-item-custom {
+  padding: 10px 15px;
+  /*margin: 15px;*/
 }
 .nav-item-custom a:hover {
-  background-color: rgba(10, 88, 202, 0.15);
+  /*background-color: rgba(10, 88, 202, 0.15);*/
   color: rgb(10, 88, 202) !important;
 }
 
+.nav-item-custom.active {
+  /*border-bottom: 1px solid rgb(10, 88, 202);*/
+  background: rgba(10, 88, 202, 0.1);
+  /*font-weight: bold;*/
+  transition: all .5s ease-in-out;
+}
 .nav-item-custom.active a {
-  background-color: rgba(10, 88, 202, 0.15);
   color: rgb(10, 88, 202) !important;
 }
 
