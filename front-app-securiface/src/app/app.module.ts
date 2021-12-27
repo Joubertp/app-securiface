@@ -12,11 +12,21 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { UsersComponent } from './modules/users/users.component';
+import { CameraComponent } from './modules/camera/camera.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
   { path: 'auth', component: AuthComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {path: '', pathMatch: 'full', redirectTo: 'camera'},
+      {path: 'camera', component: CameraComponent},
+      {path: 'users', component: UsersComponent},
+    ]
+  },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
 ]
@@ -28,7 +38,9 @@ const appRoutes: Routes = [
     FourOhFourComponent,
     DashboardComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    UsersComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
