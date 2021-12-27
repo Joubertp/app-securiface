@@ -1,0 +1,13 @@
+.nav-item-custom a {
+  padding: 15px;
+}
+.nav-item-custom a:hover {
+  /*background-color: rgba(18,102,241,.05);*/
+  background-color: rgba(10, 88, 202, 0.15);
+  color: rgb(10, 88, 202) !important;
+}
+
+.nav-item-custom a.active {
+  background-color: rgba(10, 88, 202, 0.15);
+  color: rgb(10, 88, 202) !important;
+}
