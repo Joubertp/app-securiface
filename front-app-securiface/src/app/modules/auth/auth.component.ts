@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
       return
     }
     this.authService.logIn(this.loginForm.value);
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/dashboard/1');
   }
 
 
