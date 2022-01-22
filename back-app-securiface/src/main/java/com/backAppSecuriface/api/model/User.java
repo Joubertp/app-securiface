@@ -41,8 +41,7 @@ public class User implements Serializable{
 	@Column(name = "PASSWORD", insertable=true, updatable=true, nullable=false)
     private String password;
 	
-	@CreationTimestamp
-	@ColumnDefault("CREATED_AT")
+	@Column(name = "CREATED_AT", insertable=false, updatable=false, nullable=false)
 	private LocalDateTime createdAt;
 	
 	@Column(name = "IS_ACTIVE", insertable=true, updatable = true, nullable=false)
