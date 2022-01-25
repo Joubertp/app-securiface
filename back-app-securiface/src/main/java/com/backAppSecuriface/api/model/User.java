@@ -15,9 +15,6 @@ import javax.persistence.*;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.CreationTimestamp;
-
 @Entity
 @Table(name = "USER_API")
 public class User implements Serializable{

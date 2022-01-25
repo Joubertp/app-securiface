@@ -3,6 +3,8 @@ package com.backAppSecuriface.api.service;
 import java.util.Collection;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.backAppSecuriface.api.exception.BusinessResourceException;
 import com.backAppSecuriface.api.model.User;
 

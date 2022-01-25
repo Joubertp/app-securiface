@@ -1,8 +1,11 @@
 --INITIALISATION TABLE ROLE
-INSERT INTO ROLES(ROLE_ID, ROLE_NAME) VALUES (1,'admin');
-INSERT INTO ROLES(ROLE_ID, ROLE_NAME) VALUES (2,'user');
+INSERT INTO ROLE(ROLE_ID, ROLE_NAME) VALUES (1,'admin');
+INSERT INTO ROLE(ROLE_ID, ROLE_NAME) VALUES (2,'user');
 
 --INITIALISATION TABLE UTILISATEURS
+--admin@admin.com/admin
+--franck@gmail.com/password2
+--tatie@gmail.com/password3
 INSERT INTO USER_API(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, IS_ACTIVE) values (1, 'dorine', 'berton', 'admin@admin.com', '$2a$10$ISnv6T5sqpr5YeRKP01xEOLAr/ZWviCp73BC07hMK54GNgQHMemxm', 1);
 INSERT INTO USER_API(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, IS_ACTIVE) values (2, 'franck', 'lecoche', 'franck@gmail.com', '$2a$10$5TLZBQgB/FOSkccGjKCRDerrD6YzsFznyNURwNHZG8tEwAumfFw1C', 1);
 INSERT INTO USER_API(USER_ID, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, IS_ACTIVE) values (3, 'tatie', 'nathalie', 'tatie@gmail.com', '$2a$10$U2NARRA6lp0CSfDF2JEmtOaAbf3bVGx9zGqDbLkW/T59.QdGnlguO', 0);

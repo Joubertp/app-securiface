@@ -8,5 +8,6 @@ import com.backAppSecuriface.api.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	
-	Optional<User> findByEmail(String emailParam);
+	// Collection<User> getAllUsers();
+	Optional<User> findByEmail(String email);
 }

@@ -14,5 +14,7 @@ public class BackAppSecurifaceApplication {
         application.setDefaultProperties(Map.of("server.port", 9000));
         application.run(args);
 	}
-
+// si problème de modification de données non prises en charges :
+// taper dans la console: mvn clean spring-boot:run
+// si erreur suite à ça, cliquer sur Project, clean et clean all project. au cas ou, reouvrir spring boot
 }

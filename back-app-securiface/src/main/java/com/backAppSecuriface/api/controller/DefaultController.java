@@ -18,5 +18,4 @@ public class DefaultController {
         logger.info("Démarrage des services OK .....");
         return new ResponseEntity<String>("Réponse du serveur: "+HttpStatus.OK.name(), HttpStatus.OK);
     }
-
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from '../../services/auth.service';
+import axios from 'axios'
 
 @Component({
   selector: 'app-auth',
@@ -21,7 +22,9 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      "password": ["", Validators.compose([Validators.required, Validators.minLength(6)])],
+      // "firstname": ["", Validators.compose([Validators.required, Validators.minLength(3)])],
+      // "lastname": ["", Validators.compose([Validators.required, Validators.minLength(3)])],
+      "password": ["", Validators.compose([Validators.required, Validators.minLength(5)])],
       "email": ["", Validators.compose([Validators.required, Validators.email])],
 
     });
@@ -33,6 +36,19 @@ export class AuthComponent implements OnInit {
     if(this.loginForm.invalid){
       return
     }
+    axios.post(
+      'http://127.0.0.1:9001/app-securiface/user/users/login',
+      {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*',
+        }
+      },
+      this.loginForm.value
+      )
+      .then(response => {
+      console.log(response);
+    });
     this.authService.logIn(this.loginForm.value);
     this.router.navigateByUrl('/dashboard/1');
   }

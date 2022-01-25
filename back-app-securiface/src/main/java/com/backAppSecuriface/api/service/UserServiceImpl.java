@@ -45,6 +45,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public Collection<User> getAllUsers() {
+		return IteratorUtils.toList(userRepository.findAll().iterator());
+	}
+	
+	@Override
 	public Optional<User> findByEmail(String email) throws BusinessResourceException {
 		
 		Optional<User> userFound = userRepository.findByEmail(email);
@@ -54,11 +59,6 @@ public class UserServiceImpl implements UserService {
 		return userFound;
 	}
 
-	@Override
-	public Collection<User> getAllUsers() {
-		return IteratorUtils.toList(userRepository.findAll().iterator());
-	}
-	
 	@Override
 	public Optional<User> getUserById(Long id) throws  BusinessResourceException{
 		
