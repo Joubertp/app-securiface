@@ -1,1 +1,4 @@
-<p>users works!</p>
+<h4>Liste des utilisateurs</h4>
+<ul class="list-group" *ngIf="users.length > 0">
+  <li class="list-group-item" *ngFor="let user of users">{{ user.email }}</li>
+</ul>

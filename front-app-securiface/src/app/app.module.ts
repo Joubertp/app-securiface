@@ -14,6 +14,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { UsersComponent } from './modules/users/users.component';
 import { CameraComponent } from './modules/camera/camera.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileFormComponent } from './modules/profile-form/profile-form.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
@@ -26,6 +28,7 @@ const appRoutes: Routes = [
       {path: '', pathMatch: 'full', redirectTo: 'camera'},
       {path: 'camera', component: CameraComponent},
       {path: 'users', component: UsersComponent},
+      {path: 'profile', component: ProfileFormComponent},
     ]
   },
   { path: 'not-found', component: FourOhFourComponent },
@@ -41,7 +44,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HeaderComponent,
     UsersComponent,
-    CameraComponent
+    CameraComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ const appRoutes: Routes = [
     }),
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

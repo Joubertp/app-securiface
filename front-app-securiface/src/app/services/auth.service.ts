@@ -5,9 +5,17 @@ import { User } from '../interfaces/user';
   providedIn: 'root'
 })
 export class AuthService {
+  user:User ;
 
   constructor() { }
+
+  public getCurrentUser(){
+    console.log('test', this.user)
+    return this.user;
+  }
+
   public logIn(userInfo: User) {
+    this.user = userInfo;
     localStorage.setItem('ACCESS_TOKEN', 'access_token');
   }
   public isConnected(){

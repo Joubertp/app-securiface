@@ -14,11 +14,14 @@ export class AuthComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted = false;
+  user: User;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder
+  ) { }
+
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -37,20 +40,16 @@ export class AuthComponent implements OnInit {
       return
     }
     axios.post(
-      'http://127.0.0.1:9001/app-securiface/user/users/login',
-      {
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          'Access-Control-Allow-Origin': '*',
-        }
-      },
+      'http://localhost:8080/users/login',
       this.loginForm.value
       )
       .then(response => {
-      console.log(response);
+      console.log('recup', response.data);
+      this.user = response.data;
+      this.authService.logIn(this.user);
+      console.log('id', this.user.id)
+      this.router.navigateByUrl(`/dashboard/${this.user.id}/camera`);
     });
-    this.authService.logIn(this.loginForm.value);
-    this.router.navigateByUrl('/dashboard/1');
   }
 
 
