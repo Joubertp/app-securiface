@@ -1,4 +1,25 @@
-<h4>Liste des utilisateurs</h4>
-<ul class="list-group" *ngIf="users.length > 0">
-  <li class="list-group-item" *ngFor="let user of users">{{ user.email }}</li>
-</ul>
+<h2>Liste des utilisateurs</h2>
+<table class="table">
+  <thead>
+      <tr>
+          <th> Id </th>
+          <th> Nom </th>
+          <th>Prénom</th>
+          <th>Pseudo</th>
+          <th>Email</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users; index as i">
+          <td>{{ user.id }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.username }}</td>
+          <td> {{ user.email }}</td>
+          <td>
+            <button class="btn"><i class="bi bi-trash"></i></button>
+          </td>
+      </tr>
+  </tbody>
+  </table>

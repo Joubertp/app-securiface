@@ -1,8 +1,8 @@
-<app-navbar></app-navbar>
 <div class="dashboard-container">
   <h2 >Tableau de bord</h2>
-  <p>bienvenue {{ this.user.email }}</p>
-  <router-outlet></router-outlet>
+  <h6 *ngIf="user.username; else elseBlock">Bienvenue {{ this.user.username }}</h6>
+  <ng-template #elseBlock>Bienvenue {{ this.user.email }}. Vous pouvez modifier votre pseudo.</ng-template>
+  <h4>Camera</h4>
 </div>
 
 

@@ -1,14 +1,11 @@
-<div style="margin: 20px 5px 10px 0;">
-  <app-header></app-header>
-</div>
-<div class="login">
+<div class="profile">
   <h2 class="login-header mt-4">Mon profil</h2>
   <form
   [formGroup]="profileForm"
   class="login-container form-group"
   (ngSubmit)="onUpdateUser()"
   >
-    <div class="form-group">
+    <div class="form-group mb-3">
       <input
         type="text"
         class="form-control"
@@ -76,11 +73,11 @@
         >
       </p>
       <div
-      *ngIf="isSubmitted && formControls.usernname.errors"
+      *ngIf="isSubmitted && formControls.username.errors"
       class="help-block"
       >
       <div
-        *ngIf="formControls.usernname.errors"
+        *ngIf="formControls.username.errors"
         class="text-danger mb-3"
       >Saisir au moins 3 lettres
 
@@ -130,17 +127,17 @@
           *ngIf="formControls.password.errors"
           class="text-danger mb-3"
         >
-          Mot de passe de 6 caractères minimum.
+          Mot de passe de 5 caractères minimum.
         </div>
 
       </div>
     </div>
-    <p>
-      <button
-        class="button-submit btn btn-primary btn-block"
-        type="submit"
-      >Valider</button>
-    </p>
+    <button
+      class="button-submit btn btn-primary btn-block"
+      type="submit"
+    >
+      Valider
+    </button>
   </form>
 </div>
 

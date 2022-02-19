@@ -25,8 +25,6 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      // "firstname": ["", Validators.compose([Validators.required, Validators.minLength(3)])],
-      // "lastname": ["", Validators.compose([Validators.required, Validators.minLength(3)])],
       "password": ["", Validators.compose([Validators.required, Validators.minLength(5)])],
       "email": ["", Validators.compose([Validators.required, Validators.email])],
 
@@ -48,7 +46,7 @@ export class AuthComponent implements OnInit {
       this.user = response.data;
       this.authService.logIn(this.user);
       console.log('id', this.user.id)
-      this.router.navigateByUrl(`/dashboard/${this.user.id}/camera`);
+      this.router.navigateByUrl(`/api/${this.user.id}/dashboard`);
     });
   }
 

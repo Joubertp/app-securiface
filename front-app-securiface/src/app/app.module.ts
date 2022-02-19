@@ -13,20 +13,20 @@ import { AuthGuard } from './guards/auth.guard';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { UsersComponent } from './modules/users/users.component';
-import { CameraComponent } from './modules/camera/camera.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileFormComponent } from './modules/profile-form/profile-form.component';
+import { BodyComponent } from './modules/body/body.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'auth' },
   { path: 'auth', component: AuthComponent },
   {
-    path: 'dashboard/:id',
+    path: 'api/:id',
     canActivate: [AuthGuard],
-    component: DashboardComponent,
+    component: BodyComponent,
     children: [
-      {path: '', pathMatch: 'full', redirectTo: 'camera'},
-      {path: 'camera', component: CameraComponent},
+      {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
+      {path: 'dashboard', component: DashboardComponent},
       {path: 'users', component: UsersComponent},
       {path: 'profile', component: ProfileFormComponent},
     ]
@@ -44,8 +44,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HeaderComponent,
     UsersComponent,
-    CameraComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
