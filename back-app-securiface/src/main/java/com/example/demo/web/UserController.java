@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,6 +47,18 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
 		return new ResponseEntity<>(opUser.get(), HttpStatus.OK);
+	}
+	
+	@PutMapping
+	public ResponseEntity<User> update(@RequestBody User toUpUser) {
+		Optional<User> opUser = userRep.findById(toUpUser.getId());
+
+		if (!opUser.isPresent())
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		User newUser = userRep.save(toUpUser);
+
+		return new ResponseEntity<>(newUser, HttpStatus.OK);
 	}
 
 	@GetMapping("/login")
