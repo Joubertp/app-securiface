@@ -8,15 +8,15 @@ import javax.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.metier.User;
 
-public interface UserRepository extends  PagingAndSortingRepository<User, Integer> {
+public interface UserRepository extends  CrudRepository<User, Long> {
 
 	Optional<User> findByUsername( String username);
 	
@@ -26,4 +26,8 @@ public interface UserRepository extends  PagingAndSortingRepository<User, Intege
 	
 	@Query("SELECT u FROM User u")
 	<T>Page<T> findAll(Class<T> type, Pageable page);
+	
+
+	public Optional<User> findByEmail(String email);
+	
 }
