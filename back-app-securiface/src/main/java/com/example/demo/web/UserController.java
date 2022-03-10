@@ -88,9 +88,20 @@ public class UserController {
 		      userService.update(user);
 		    }
 		    catch (Exception ex) {
-		      return "Erreur création de l'utilisateur: " + ex.toString();
+		      return "Erreur maj de l'utilisateur: " + ex.toString();
 		    }
 		    return "Utilisateur mis à jour";
+	  }
+	  
+	  @PutMapping("/updatePassword")
+	  @ResponseBody
+	  public ResponseEntity<?> updateUserPswd(@RequestBody User user) {
+		    try {
+		      return userService.updatePswd(user);
+		    }
+		    catch (Exception ex) {
+		      return new ResponseEntity<>("Erreur maj de l'utilisateur: " + ex.toString(),HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
 	  }
 	  
 	  @DeleteMapping("/delete/{id}")

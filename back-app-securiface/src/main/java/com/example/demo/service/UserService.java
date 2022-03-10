@@ -21,6 +21,9 @@ public class UserService {
 	
 	  @Autowired
 	  private UserRepository userRepository;
+	  
+	  @Autowired
+	  private PasswordEncoder passwordEncoder;
 
 	  public ResponseEntity<User> create(User user) {
 		  	userRepository.findByEmail(user.getEmail()).ifPresent(userSelected -> {
@@ -54,11 +57,22 @@ public class UserService {
 	  }
 	  
 	  public ResponseEntity<?> update(User user) {
-		  	boolean exists = userRepository.existsById(user.getId());
-		  	if(!exists) {
+		  	Optional<User> exists = userRepository.findById(user.getId());
+		  	if(exists.isEmpty()) {
 		  		return new ResponseEntity<String>("Utilisateur inconnu", HttpStatus.BAD_REQUEST); 
 		  	}
+		  	//on ne peut pas modififer le psword avec cette requette
+		  	user.setPassword(exists.get().getPassword());
 		  	return new ResponseEntity<User>(userRepository.save(user), HttpStatus.ACCEPTED);
+	  }
+	  
+	  public ResponseEntity<?> updatePswd(User user) {
+		  	Optional<User> exists = userRepository.findById(user.getId());
+		  	if(exists.isEmpty()) {
+		  		return new ResponseEntity<String>("Utilisateur inconnu", HttpStatus.BAD_REQUEST); 
+		  	}
+		  	exists.get().setPassword(passwordEncoder.encode(user.getPassword()));
+		  	return new ResponseEntity<User>(userRepository.save(exists.get()), HttpStatus.ACCEPTED);
 	  }
 
 	  public ResponseEntity<String> delete(Long id) {

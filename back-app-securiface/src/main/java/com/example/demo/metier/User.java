@@ -39,6 +39,7 @@ public class User {
 	  @Column(name="EMAIL", length= 30, nullable=false)
 	  private String email;
 	  @Column(name="PASSWORD", length= 120, nullable=false)
+	  @JsonIgnore
 	  private String password;
 	  @Column(columnDefinition="TEXT", nullable = false)
 	  private String description;
